@@ -1,0 +1,265 @@
+html,body
+	height: 100vh
+	width: 100vw
+body
+	background: #1f1f1f
+	font-family: 'Raleway', sans-serif
+h1,h2,h3,h4
+	font-family: 'Abril Fatface', serif
+#container
+	display: flex
+	align-items: center
+	justify-content: space-around
+	height: 100%
+	width: 100%
+.slide
+	position: relative
+	flex: 1
+	height: 100%
+	overflow: hidden
+	cursor: pointer
+	transition: all 1.5s ease-in-out
+	&.last-viewed
+		.btn-close
+			&:after
+				transition-delay: 0s
+			&:before
+				transition-delay: 0.1s
+		.content
+			.city-info
+				transition-delay: 0s
+				li
+					@for $i from 1 through 3
+						&:nth-of-type(#{$i})
+							transition-delay: ($i * 0.2s)
+			.emblem
+				transition: all 0.5s ease-in-out
+				transition-delay: 0s
+	&.last-viewed, &.active
+		.image
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+	&.active
+		cursor: default
+		.overlay
+			width: 25%
+			background-size: 100% 100%
+			transition: all 1.25s ease-in-out
+			transition-delay: 1.75s
+		.content
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			.title
+				width: 25%
+				opacity: 1
+				transform: translateY(30px)
+				transition: all 1s ease-in-out
+				transition-delay: 1.25s
+				&:after
+					height: 100%
+					color: white
+					overflow: initial
+				&:before
+					transform: scaleX(1)
+					transition-delay: 2s
+			.city-info
+				opacity: 1
+				li
+					opacity: 1
+					transform: translateX(0)
+			.emblem
+				opacity: 0.8
+				transform: translateY(100px)
+		.btn-close
+			cursor: pointer
+			pointer-events: auto
+			&:before, &:after
+				opacity: 1
+			&:after
+				transform: rotate(45deg) translateX(0px)
+			&:before
+				transform: rotate(-45deg) translateX(0px)
+	&.anim-in
+		transition-delay: 0.5s
+		.image
+			top: -20%
+			left: -140%
+			height: 140%
+			width: 140%
+			animation: img-anim-in 1.2s ease-in-out forwards
+	&.anim-out
+		flex: 0
+		cursor: default
+		transition-delay: 0.5s
+		.image
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			animation: img-anim-out 1.2s ease-in-out forwards
+	@for $i from 1 through 4
+		&:nth-of-type(#{$i})
+			&.anim-in
+				.image
+					animation-delay: $i * 0.2s
+			&.anim-out
+				.image
+					animation-delay: $i * 0.2s
+	.image
+		position: absolute
+		background-size: cover
+		background-position: center center
+		pointer-events: none
+		transition: all 1s ease-in-out
+	.overlay
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		background-image: linear-gradient(rgba(20,20,20,0.7),rgba(20,20,20,0))
+		background-position: 0 0
+		background-size: 100% 200%
+		opacity: 1
+		pointer-events: none
+		transition: all 0.5s ease-in-out
+	.content
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		pointer-events: none
+		.title
+			position: absolute
+			top: -10px
+			height: 65px
+			width: 100%
+			box-sizing: border-box
+			font-size: 3em
+			text-align: center
+			text-shadow: 0 2px 2px #2f2f2f
+			color: #3f3f3f
+			opacity: 0
+			pointer-events: none
+			transition: all 0.5s ease-in-out
+			&:after
+				position: absolute
+				top: 0
+				height: 0
+				width: 100%
+				display: block
+				content: attr(data-title)
+				overflow: hidden
+				color: #fff59d
+				transition: all 0.85s ease-in-out
+			&:before
+				position: absolute
+				bottom: 15px
+				display: block
+				content: ''
+				height: 2px
+				width: 85%
+				background: white
+				box-shadow: 0 2px 6px #2f2f2f
+				transform-origin: left center
+				transform: scaleX(0)
+				transition: transform 1.25s ease-in-out
+		.emblem
+			position: absolute
+			height: 200px
+			width: 25%
+			opacity: 0
+			transform: translateY(120px)
+			transition: all 1s ease-in-out
+			transition-delay: 1.75s
+			background-position: center center
+			background-repeat: no-repeat
+			background-size: auto 100%
+		.city-info
+			position: absolute
+			bottom: 30px
+			right: 30px
+			padding: 30px 30px 30px 120px
+			font-size: 1.25em
+			color: white
+			text-shadow: 0 1px 4px #0f0f0f
+			background-image: linear-gradient(90deg, rgba(20,20,20,0), rgba(20,20,20,0.7))
+			opacity: 0
+			transition: all 1s ease-in-out
+			transition-delay: 2s
+			li
+				position: relative
+				margin-bottom: 5px
+				text-align: justify
+				opacity: 0
+				transform: translateX(-30px)
+				transition: all 0.75s ease-in-out
+				@for $i from 1 through 3
+					&:nth-of-type(#{$i})
+						transition-delay: ($i * 0.2s) + 2.5s
+	.btn-close
+		position: absolute
+		z-index: 100
+		top: 20px
+		right: 20px
+		height: 24px
+		width: 24px
+		pointer-events: none
+		&:before, &:after
+			position: absolute
+			top: 12px
+			display: block
+			content: ''
+			width: 100%
+			height: 4px
+			background-color: white
+			opacity: 0
+			cursor: pointer
+			transition: all 0.5s ease-in-out
+		&:after
+			transform: rotate(45deg) translateX(-12px)
+			transition-delay: 3s
+		&:before
+			transform: rotate(-45deg) translateX(12px)
+			transition-delay: 3.2s
+	&:hover:not(.active):not(.anim-out)
+		.image
+			transform: scale(1.2)
+		.overlay
+			opacity: 0.6
+		.content .title
+			opacity: 1
+			transform: translateY(30px)
+			&:after
+				height: 100%
+#codepen-link
+	position: absolute
+	left: 30px
+	bottom: 30px
+	height: 40px
+	width: 40px
+	z-index: 10
+	border-radius: 50%
+	background-image: url('http://www.seanalexanderfree.com/codepen/avatar.jpg')
+	background-position: center center
+	background-size: cover
+	opacity: 0.7
+	transition: all 0.25s
+	&:hover
+		opacity: 1
+		box-shadow: 0 2px 6px #0f0f0f
+@keyframes img-anim-in
+	to
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+@keyframes img-anim-out
+	to
+		left: -100%

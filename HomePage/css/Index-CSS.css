@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+
+.fh5co-overlay{
+	background-image: url("../../Images/Fly_iStock_000050476154_Large.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 100% 20%;
+}
+
+.invalid-feedback{display:none;width:100%;margin-top:.25rem;font-size:80%;color:#dc3545}
+
+#continentalArea{
+	color: black;
+}
+
+.image-map{
+	margin-left: 8%;
+}
+
+#search{
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	display: block;
+	width: 100%;
+	height: 35px;
+	padding: 20px 20px;
+	font-size: 14px;
+	line-height: 1.42857;
+	color: #555555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	-o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	font-family: inherit;
+	font: inherit;
+	margin: 1% 0 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-weight: 300;
+}
+
+.custom-control{
+	margin-left: 4%;
+}
+
+@media screen and (max-width:320px){
+	.image-map{
+		margin-left: -35%;
+		max-width: 170%;
+		transform: rotate(90deg);
+	}
+}
+
+@media screen and (max-width:480px){
+	.image-map{
+		transform: rotate(90deg);
+		margin-left: -35%;
+		max-width: 170%;
+	}
+	.fh5co-cover{
+		margin-top: -11%;
+	}
+	.fh5co-section-gray{
+		margin-top: 25%;
+	}
+}
+
+@media screen and (max-width:768px){
+	.image-map{
+		max-width: 100%;
+		margin-left: 0%
+	}
+}
+
+@media screen and (max-width:1024px){
+	.image-map{
+		max-width: 100%;
+		margin-left: 0%
+	}
+}
+
+@media screen and (max-width:1440px){
+	
+}
+
+@media screen and (min-width:1024px){
+	.image-map{
+		max-width: 100%;
+	}
+}
+
+#mintemp {
+	width: auto;
+}
+
+#savethis{
+	width: auto;
+}
+
+#maxtemp{
+	width: auto;
+}
+
+#departure{
+	width: auto;
+}
+
+#depDate{
+	width: auto;
+}
+
+#retDate{
+	width: auto;
+}
+
+#continental{
+	width: auto;
+}
+
+#departureCity{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: block;
+    padding: 10px 20px;
+    height: 42px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #fff;
+    border-radius: 4px;
+    background-image: none;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    font-family: inherit;
+    margin: 0;
+    font-family: inherit;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+@media screen and (max-width:320px){
+	#departureCity{
+		transform: translate(-14px);
+	}
+	.fh5co-section-gray{
+		margin-top: 10%;
+	}
+}
